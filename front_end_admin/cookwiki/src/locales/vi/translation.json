@@ -1,0 +1,31 @@
+{
+  "header": {
+    "write_article": "Viết Món Mới",
+    "account_setting": "Account Setting",
+    "logout": "Logout"
+  },
+  "footer": {
+    "sign": "Bản quyền của © Cookpad Inc. All Rights Reserved"
+  },
+  "change_password": {
+    "title": "Change password",
+    "password": "Password",
+    "current_password": "Password",
+    "new_password": "New password",
+    "confirm_password": "Confirm password",
+    "cancel": "Cancel",
+    "save": "Submit",
+    "two_factor_authentication": "Two-factor authentication"
+  },
+  "article_food": {
+    "placeholder_1": "Đậy kín hỗn hợp lại và để ở nhiệt độ phòng trong vòng 24-36 tiếng",
+    "have_you_posted_the_picture_you_cooked_here_yet": "Bạn đã đăng hình món mình nấu ở đây chưa?",
+    "share_with_everyone_your_cooking_product": "Chia sẻ với mọi người thành phẩm nấu nướng của bạn nào!",
+    "ingredient": "Phần nguyên liệu",
+    "name_of_dish_the_best_pumpkin_soup_in_my_house": "Tên món: Món canh bí ngon nhất nhà mình",
+    "please_share_with_everyone_about_this_dish": "Hãy chia sẻ với mọi người về món này"
+  },
+  "recipes": {
+    "search_recipes": "Tìm kiếm công thức nấu ăn"
+  }
+}
