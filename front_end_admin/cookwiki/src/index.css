@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --header-height: 3rem;
+
+    --left-toolbar-width: 18rem;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+    }
+}
+
+@theme {
+    --color-orange-ff9933: #ff9933;
+    --color-orange-f09030: #f09030;
+}
