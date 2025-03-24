@@ -4,6 +4,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {ROUTES} from "@/routes/routes";
 import Login from "@/pages/login/Login";
 import Logout from "@/pages/logout/Logout";
+
 import ForgotPassword from "@/pages/forgot-password/ForgotPassword";
 import ChangePassword from "@/pages/forgot-password/ChangePassword";
 import SignUp from "@/pages/sign-up/SignUp";
@@ -42,7 +43,7 @@ function App() {
                             <Route path={ROUTES.HOME} element={<Navigate to={ROUTES.RECIPES}/>}/>
 
                             <Route path={ROUTES.ACCOUNT_SETTING} element={<AccountSetting/>}/>
-
+                            
                             <Route path={ROUTES.RECIPES} element={<Recipes/>}/>
                             <Route path={ROUTES.RECIPES_DETAIL} element={<RecipesDetail/>}/>
                             <Route path={ROUTES.RECIPES_COMMENTS} element={<RecipesComments/>}/>
