@@ -97,7 +97,19 @@ const httpPatch = ({uri, options}) => {
     });
 }
 
-
+// const httpPut = ({uri, options}: HttpRequest) => {
+//     return httpRequest({
+//         uri: uri,
+//         options: {method: METHOD.PUT, ...options}
+//     });
+// }
+//
+// const httpDelete = ({uri, options}: HttpRequest) => {
+//     return httpRequest({
+//         uri: uri,
+//         options: {method: METHOD.DELETE, ...options}
+//     });
+// }
 
 export {
     METHOD,
@@ -105,5 +117,6 @@ export {
     httpGet,
     httpPost,
     httpPatch
-   
+    // httpPut,
+    // httpDelete
 }
