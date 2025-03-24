@@ -14,4 +14,6 @@ export const ROUTES = {
     SEARCH: "/search",
     ARTICLE_POST: "/article-post",
     ARTICLE_UPDATE: "/article-update/:id",
+    CHAT: "/chat",
+    
 };

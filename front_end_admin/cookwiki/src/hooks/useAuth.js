@@ -1,7 +1,7 @@
 import {httpPost} from "@/utils/api";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 
-const queryKey = "/api/authadmin";
+const queryKey = "/api/auth";
 
 const login = async (params) => {
     const resp = await httpPost(
