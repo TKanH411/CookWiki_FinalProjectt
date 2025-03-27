@@ -1,14 +1,14 @@
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import bgImage3 from "@/assets/img-3.jpg";
 import bgImage6 from "@/assets/img-6.jpg";
-import {UserIcon} from "@heroicons/react/20/solid";
-import {Link} from "react-router-dom";
-import {ROUTES} from "@/routes/routes";
+import { UserIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
+import { ROUTES } from "@/routes/routes";
 import Pagination from "@/components/commons/Pagination";
-import {useState} from "react";
-import {useRecipe} from "@/hooks/useRecipe";
-import {parseColorStatus, STATUS_LIST} from "@/utils/string";
-import {useRecipeFavouriteByUser} from "@/hooks/useRecipeFavourite";
+import { useState } from "react";
+import { useRecipe } from "@/hooks/useRecipe";
+import { parseColorStatus, STATUS_LIST } from "@/utils/string";
+import { useRecipeFavouriteByUser } from "@/hooks/useRecipeFavourite";
 
 function SaveFood() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,18 +28,18 @@ function SaveFood() {
     const onPageChange = (page) => {
         console.log("------> Line: 29 | Recipes.jsx page: ", page);
         setCurrentPage(page);
-    }
+    };
 
     const onPageChangeFavourite = (page) => {
         console.log("------> Line: 34 | Recipes.jsx page: ", page);
         setCurrentPageFavourite(page);
-    }
+    };
 
     return (
         <div className={cn("flex flex-wrap gap-6 text-black pt-5 w-full px-[200px]")}>
             <div className={cn("flex flex-col w-full justify-start border-b border-dashed border-gray-300 pb-5 gap-3")}>
                 <p className={cn("flex text-[26px] font-semibold text-[rgba(96,96,96,0.9)]")}>
-                    Kho Món Ngon Của Bạn
+                    Your Recipe Collection
                 </p>
                 <div>
                     <Pagination
@@ -50,7 +50,7 @@ function SaveFood() {
                 </div>
                 <div className={cn("grid grid-cols-4 xxl:grid-cols-6 gap-4")}>
                     {recipeMutation.data?.recipes?.map((item, idx) => {
-                        const {statusColor, color} = parseColorStatus(item.status || STATUS_LIST.DRAFT);
+                        const { statusColor, color } = parseColorStatus(item.status || STATUS_LIST.DRAFT);
 
                         return (
                             <Link key={idx} className={cn("group shadow-md rounded-lg flex flex-col")}
@@ -64,17 +64,17 @@ function SaveFood() {
                                             "leading-none font-semibold text-white bg-[rgba(74,74,74,0.4)]",
                                             "group-hover:bg-[rgba(74,74,74,0.8)] group-hover:opacity-100 group-hover:pb-10 transition-all",
                                         )}>
-                                <p className={cn("line-clamp-2")}>{item.title}</p>
-                            </span>
+                                        <p className={cn("line-clamp-2")}>{item.title}</p>
+                                    </span>
                                 </div>
                                 <div
                                     className={cn("p-3 grow flex flex-col justify-between bg-[rgba(255,255,255,0.8)] text-[rgba(96,96,96,0.9)]")}>
                                     <p
                                         className={cn(
-                                            "bottom-2 rounded-full  px-2 py-1 w-[100px] text-center",
-                                            "text-sm font-semibold "
+                                            "bottom-2 rounded-full px-2 py-1 w-[100px] text-center",
+                                            "text-sm font-semibold"
                                         )}
-                                        style={{backgroundColor: statusColor, color: color}}
+                                        style={{ backgroundColor: statusColor, color: color }}
                                     >
                                         {(item.status || STATUS_LIST.DRAFT).toUpperCase()}
                                     </p>
@@ -82,21 +82,21 @@ function SaveFood() {
                                         {item.description}
                                     </p>
                                     <p className={cn("text-[16px] font-semibold flex items-center pt-2")}>
-                                        <UserIcon className={cn("size-5 mr-2 fill-black")}/>
+                                        <UserIcon className={cn("size-5 mr-2 fill-black")} />
                                         <span className={cn("line-clamp-1")}>
-                                        {item.user?.email}
-                                    </span>
+                                            {item.user?.email}
+                                        </span>
                                     </p>
                                 </div>
                             </Link>
-                        )
+                        );
                     })}
                 </div>
             </div>
 
             <div className={cn("flex flex-col w-full justify-start border-b border-dashed border-gray-300 pb-5 gap-3")}>
                 <p className={cn("flex text-[26px] font-semibold text-[rgba(96,96,96,0.9)]")}>
-                    Các Món Bạn Đã Lưu
+                    Your Saved Recipes
                 </p>
 
                 <div>
@@ -125,7 +125,7 @@ function SaveFood() {
                                     {item?.recipe?.description}
                                 </p>
                                 <div className={cn("text-[16px] font-semibold flex items-center pt-2")}>
-                                    <UserIcon className={cn("size-5 mr-2 fill-black")}/>
+                                    <UserIcon className={cn("size-5 mr-2 fill-black")} />
                                     <p className={cn("line-clamp-1")}>{item?.recipe?.user?.email}</p>
                                 </div>
                             </div>
@@ -134,13 +134,15 @@ function SaveFood() {
                 </div>
             </div>
 
-            <p className={cn("text-[20px] font-bold")}>Về Cookpad</p>
-            <span className={cn("text-[16px] font-semibold")}>Sứ mệnh của Cookpad là làm cho việc vào bếp vui hơn mỗi ngày, 
-                vì chúng tôi tin rằng nấu nướng là chìa khoá cho một cuộc sống hạnh phúc hơn và khoẻ mạnh hơn cho con người, cộng đồng, và hành tinh này. 
-                Chúng tôi muốn hỗ trợ các đầu bếp gia đình trên toàn thế giới để họ có thể giúp đỡ nhau qua việc chia sẻ các món ngon và kinh nghiệm nấu ăn của mình.</span>
+            <p className={cn("text-[20px] font-bold")}>About Cookpad</p>
+            <span className={cn("text-[16px] font-semibold")}>
+                Cookwiki's mission is to make cooking more enjoyable every day because we believe 
+                that cooking is the key to a happier and healthier life for people, communities, and the planet. 
+                We aim to support home cooks around the world by helping them share delicious recipes and cooking experiences.
+            </span>
 
             <div className={cn("bg-center bg-no-repeat bg-cover w-full h-[100px]")}
-                 style={{backgroundImage: `url(${bgImage3})`}}/>
+                 style={{ backgroundImage: `url(${bgImage3})` }} />
         </div>
     );
 }
