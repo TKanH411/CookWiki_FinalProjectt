@@ -201,9 +201,9 @@ function Post() {
                         />
 
                         <div className={cn("flex flex-col gap-2 mt-[40px] ")}>
-                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Nguyên Liệu</h2>
+                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Cooking ingredients</h2>
                             <div className={cn("flex gap-3 items-center")}>
-                                <p className={cn("text-semibold text-gray-500 text-[18px] text-nowrap")}>Khẩu phần:</p>
+                                <p className={cn("text-semibold text-gray-500 text-[18px] text-nowrap")}> Portion:</p>
                                 <Controller
                                     control={control}
                                     name="portion"
@@ -211,7 +211,7 @@ function Post() {
                                         <Input
                                             {...field}
                                             type="text"
-                                            placeholder="2 người"
+                                            placeholder="2 person"
                                             className={cn(
                                                 "p-2 rounded-lg mt-2 font-bold bg-[#F8F6F2] w-full",
                                                 "data-[focus]:outline-1 data-[focus]:outline-white text-gray-500"
@@ -230,7 +230,7 @@ function Post() {
                                                 <div key={index} className={cn("flex items-center gap-2 w-full")}>
                                                     <Input
                                                         type="text"
-                                                        placeholder="250g bột"
+                                                        placeholder="250g"
                                                         value={item.quantity ? `${item.quantity} ${item.name}` : item.name}
                                                         onBlur={(e) => {
                                                             const tokens = (e.target.value || "").trim().split(" ");
@@ -331,15 +331,15 @@ function Post() {
                                         "text-2xl w-full p-2 font-bold bg-[#F8F6F2] data-[focus]:outline-1 rounded-lg",
                                         "data-[focus]:outline-white text-gray-500 text-sm h-[60px] placeholder:whitespace-pre-line"
                                     )}
-                                    placeholder="Hãy chia sẻ với mọi người về món này của bạn nhé - ai đã truyền cảm hứng cho bạn, tại sao nó đặc biệt, bạn thích thưởng thức nó thế nào?"
+                                    placeholder="Tell us about your dish – who inspired it, why it's special and how do you enjoy it?"
                                 />
                             )}
                         />
                         <div className={cn("mt-[20px]")}>
-                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Các bước</h2>
+                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Steps</h2>
                             <div className={cn("flex flex-wrap gap-8 items-center")}>
                                 <p className={cn("text-semibold text-gray-500 text-[18px]")}>
-                                    Thời gian nấu
+                                    Cooking time
                                 </p>
                                 <Controller
                                     control={control}
@@ -352,7 +352,7 @@ function Post() {
                                                 "text-2xl p-2 font-bold bg-[#F8F6F2] data-[focus]:outline-1 rounded-lg",
                                                 "data-[focus]:outline-white text-gray-500 text-sm placeholder:whitespace-pre-line whitespace-pre-line flex-grow-1"
                                             )}
-                                            placeholder="1 tiếng 30 phút"
+                                            placeholder="1 hour 30 minutes"
                                         />
                                     )}
                                 />
@@ -399,7 +399,7 @@ function Post() {
                                     onClick={addCookStep}
                                 >
                                     <PlusIcon className={cn("size-7 fill-gray-400 mr-1")}/>
-                                    Thêm công thức
+                                    Add formula
                                 </Button>
                             </div>
                         </div>
@@ -416,7 +416,7 @@ function Post() {
                             "data-[hover]:text-neutral-200 data-[open]:text-neutral-200 text-[18px] w-[200px] text-white"
                         )}
                     >
-                        Thoát
+                        Back to home
                     </Link>
                     <Button
                         type="submit"
@@ -429,7 +429,7 @@ function Post() {
                         )}
                     >
                         <PencilSquareIcon className={cn("size-5 fill-white text-[rgb(255,145,0)]")}/>
-                        Đăng Món Ăn
+                        Post
                     </Button>
                 </div>
             </form>
