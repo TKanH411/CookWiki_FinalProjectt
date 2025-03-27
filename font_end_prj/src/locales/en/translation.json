@@ -2,27 +2,28 @@
   "header": {
     "write_article": "New Recipe",
     "account_setting": "Account Setting",
+    "chat": "Chatbox",
     "logout": "Logout"
   },
   "footer": {
-    "sign": "Bản quyền của © Cookpad Inc. All Rights Reserved"
+    "sign": "Copyright © CookWiki Inc. All Rights Reserved"
   },
   "change_password": {
-    "title": "Change password",
+    "title": "Change Password",
     "password": "Password",
-    "current_password": "Password",
-    "new_password": "New password",
-    "confirm_password": "Confirm password",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "confirm_password": "Confirm Password",
     "cancel": "Cancel",
     "save": "Submit",
-    "two_factor_authentication": "Two-factor authentication"
+    "two_factor_authentication": "Two-Factor Authentication"
   },
   "article_food": {
-    "placeholder_1": "Đậy kín hỗn hợp lại và để ở nhiệt độ phòng trong vòng 24-36 tiếng",
-    "have_you_posted_the_picture_you_cooked_here_yet": "Bạn đã đăng hình món mình nấu ở đây chưa?",
-    "share_with_everyone_your_cooking_product": "Chia sẻ với mọi người thành phẩm nấu nướng của bạn nào!",
-    "ingredient": "Phần nguyên liệu",
-    "name_of_dish_the_best_pumpkin_soup_in_my_house": "Tên món: Món canh bí ngon nhất nhà mình",
-    "please_share_with_everyone_about_this_dish": "Hãy chia sẻ với mọi người về món này"
+    "placeholder_1": "Cover the mixture tightly and leave it at room temperature for 24-36 hours.",
+    "have_you_posted_the_picture_you_cooked_here_yet": "Have you posted the picture of your cooked dish here yet?",
+    "share_with_everyone_your_cooking_product": "Share your cooking masterpiece with everyone!",
+    "ingredient": "Ingredients",
+    "name_of_dish_the_best_pumpkin_soup_in_my_house": "Dish Name: The Best Pumpkin Soup in My House",
+    "please_share_with_everyone_about_this_dish": "Please share with everyone about this dish."
   }
 }
