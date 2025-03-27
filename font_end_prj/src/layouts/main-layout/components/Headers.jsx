@@ -30,9 +30,7 @@ function Headers() {
     return (
         <header
             id="header"
-            className={cn(
-                "flex justify-end items-center py-1 px-4",
-                "h-[var(--header-height)] space-x-4"
+            className={cn(  "flex justify-end items-center py-1 px-4", "h-[var(--header-height)] space-x-4"
             )}
         >
             <div className={cn("flex justify-end items-center bg-white rounded-lg h-full w-full px-4 gap-5")}>
