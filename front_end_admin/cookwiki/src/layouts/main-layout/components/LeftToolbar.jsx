@@ -1,6 +1,6 @@
 import {cn} from "@/lib/utils";
-import logoCircle from "@/assets/images/logo-circle.png";
-import logoText from "@/assets/images/logo-text.png";
+import logoCircle from "@/assets/Monkeylogo.png";
+import logoText from "@/assets/Cookwiki.png";
 import {Link} from "react-router-dom";
 import {ROUTES} from "@/routes/routes";
 
