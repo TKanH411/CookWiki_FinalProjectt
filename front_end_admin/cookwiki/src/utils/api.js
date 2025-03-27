@@ -44,7 +44,22 @@ const httpRequest = async ({uri, options}) => {
         console.error("API Request failed: ", response);
         throw new Error("API Request failed");
     }
+    // const signUp = async (userData) => {
+    //     try {
+    //         const response = await httpRequest("/api/signup", {q
 
+
+    
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(userData),
+    //         });
+    //         console.log("Sign Up Success:", response);
+    //     } catch (error) {
+    //         console.error("Sign Up Failed:", error);
+    //     }
+    // };
+    
     return response;
 }
 
