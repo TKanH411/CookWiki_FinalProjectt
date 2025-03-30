@@ -6,10 +6,41 @@ const ChatPage = () => {
   const [input, setInput] = useState("");
   const chatContainerRef = useRef(null);
 
-  const sendMessage = () => {
+  // Hàm gửi tin nhắn lên Dialogflow
+  const sendMessage = async () => {
     if (!input.trim()) return;
-    setMessages([...messages, { sender: "user", text: input }]);
+
+    const userMessage = { sender: "user", text: input };
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
+
+    try {
+      const response = await fetch("https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer YOUR_ACCESS_TOKEN`, // Thay bằng Access Token của bạn
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          queryInput: {
+            text: {
+              text: input,
+              languageCode: "en",
+            },
+          },
+        }),
+      });
+
+      const data = await response.json();
+      const botMessage = {
+        sender: "bot",
+        text: data.queryResult.fulfillmentText || "Xin lỗi, tôi không hiểu.",
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
   };
 
   // Auto scroll xuống tin nhắn mới nhất
