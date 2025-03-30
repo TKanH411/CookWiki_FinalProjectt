@@ -34,13 +34,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <AuthProvider>
                 <Routes>
-                    {/* Define your public routes */}
-                    <Route path={ROUTES.LOGIN} element={<Login />} />
-                    <Route path={ROUTES.LOGOUT} element={<Logout />} />
-                    <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
-                    <Route path={ROUTES.CONFIRM_OTP} element={<ConfirmOtp />} />
-                    <Route path={ROUTES.CHANGE_PASSWORD} element={<ChangePassword />} />
-                    <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+                  
 
                     {/* Define your private routes */}
                     <Route element={<PrivateRoute />}>
@@ -59,6 +53,17 @@ function App() {
                             {/* Thêm Route cho trang Chat */}
                             <Route path="/chat" element={<ChatPage />} />
                         </Route>
+                          {/* Define your public routes */}
+                          <Route element={<MainLayout />}>
+                          <Route path={ROUTES.LOGIN} element={<Login />} />
+                    <Route path={ROUTES.LOGOUT} element={<Logout />} />
+                    <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
+                    <Route path={ROUTES.CONFIRM_OTP} element={<ConfirmOtp />} />
+                    <Route path={ROUTES.CHANGE_PASSWORD} element={<ChangePassword />} />
+                    <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
+                    </Route>
+                   
+                    
                     </Route>
 
                     {/* Catch-all route for 404 */}
