@@ -25,5 +25,21 @@
     "ingredient": "Ingredients",
     "name_of_dish_the_best_pumpkin_soup_in_my_house": "Dish Name: The Best Pumpkin Soup in My House",
     "please_share_with_everyone_about_this_dish": "Please share with everyone about this dish."
-  }
+  },
+  "home":{
+    "makeCookingFun": "Make daily cooking more fun!",
+    "findAndShareRecipes": "Find and share amazing recipes for your daily cooking.",
+    "discoverDishes": "Discover delicious dishes from the CookWiki community",
+    "exploreRecipes": "With CookWiki search, you can explore recipes by ingredients or dish names, ensuring you always find something delicious.",
+    "betterSearchExperience": "Enjoy an even better search experience with the free CookWiki mobile app!",
+    "saveRecipes": "Save Recipes",
+    "bookmarkRecipes": "Using the bookmark icon, you can save recipes in your kitchen for later.",
+    "manageRecipes": "With the free CookWiki mobile app, you can save and manage your recipes more efficiently!",
+    "shareCreations": "Share your delicious creations",
+    "documentRecipes": "You can document and share your cooking experiences or family recipes forever by uploading them to CookWiki.",
+    "showAppreciation": "Show appreciation to recipe creators who shared their dishes. With Cooksnaps, you can let them know how their recipe worked for you.",
+    "aboutCookWiki": "About CookWiki",
+    "mission": "CookWiki's mission is to make home cooking more enjoyable every day because we believe that cooking is the key to a happier and healthier life for individuals, communities, and the planet. We aim to support home chefs worldwide so they can help each other by sharing delicious dishes and cooking experiences."
+}
+
 }

@@ -1,28 +1,43 @@
 {
   "header": {
     "write_article": "Viết Món Mới",
-    "account_setting": "Account Setting",
-    "logout": "Logout"
+    "account_setting": "Cài Đặt Tài Khoản",
+    "logout": "Đăng Xuất"
   },
   "footer": {
-    "sign": "Bản quyền của © Cookpad Inc. All Rights Reserved"
+    "sign": "Bản quyền © CookWiki Inc. Đã đăng ký bảo lưu"
   },
   "change_password": {
-    "title": "Change password",
-    "password": "Password",
-    "current_password": "Password",
-    "new_password": "New password",
-    "confirm_password": "Confirm password",
-    "cancel": "Cancel",
-    "save": "Submit",
-    "two_factor_authentication": "Two-factor authentication"
+    "title": "Đổi Mật Khẩu",
+    "password": "Mật Khẩu",
+    "current_password": "Mật Khẩu Hiện Tại",
+    "new_password": "Mật Khẩu Mới",
+    "confirm_password": "Xác Nhận Mật Khẩu",
+    "cancel": "Hủy",
+    "save": "Lưu",
+    "two_factor_authentication": "Xác Thực Hai Lớp"
   },
   "article_food": {
     "placeholder_1": "Đậy kín hỗn hợp lại và để ở nhiệt độ phòng trong vòng 24-36 tiếng",
-    "have_you_posted_the_picture_you_cooked_here_yet": "Bạn đã đăng hình món mình nấu ở đây chưa?",
-    "share_with_everyone_your_cooking_product": "Chia sẻ với mọi người thành phẩm nấu nướng của bạn nào!",
-    "ingredient": "Phần nguyên liệu",
-    "name_of_dish_the_best_pumpkin_soup_in_my_house": "Tên món: Món canh bí ngon nhất nhà mình",
-    "please_share_with_everyone_about_this_dish": "Hãy chia sẻ với mọi người về món này"
+    "have_you_posted_the_picture_you_cooked_here_yet": "Bạn đã đăng hình món ăn bạn nấu ở đây chưa?",
+    "share_with_everyone_your_cooking_product": "Chia sẻ thành phẩm nấu nướng của bạn với mọi người nào!",
+    "ingredient": "Nguyên Liệu",
+    "name_of_dish_the_best_pumpkin_soup_in_my_house": "Tên Món: Canh Bí Ngon Nhất Nhà Mình",
+    "please_share_with_everyone_about_this_dish": "Hãy chia sẻ về món ăn này với mọi người"
+  },
+  "home":{
+    "makeCookingFun": "Làm cho việc nấu ăn hàng ngày trở nên thú vị hơn!",
+    "findAndShareRecipes": "Tìm và chia sẻ những công thức nấu ăn tuyệt vời cho bữa ăn hàng ngày.",
+    "discoverDishes": "Khám phá những món ăn ngon từ cộng đồng CookWiki",
+    "exploreRecipes": "Với tính năng tìm kiếm của CookWiki, bạn có thể khám phá công thức theo nguyên liệu hoặc tên món ăn, đảm bảo luôn tìm được thứ ngon miệng.",
+    "betterSearchExperience": "Trải nghiệm tìm kiếm tuyệt vời hơn với ứng dụng CookWiki miễn phí!",
+    "saveRecipes": "Lưu công thức",
+    "bookmarkRecipes": "Sử dụng biểu tượng đánh dấu, bạn có thể lưu công thức vào bếp của mình để sau này sử dụng.",
+    "manageRecipes": "Với ứng dụng CookWiki miễn phí, bạn có thể lưu và quản lý công thức của mình hiệu quả hơn!",
+    "shareCreations": "Chia sẻ thành phẩm nấu nướng của bạn",
+    "documentRecipes": "Bạn có thể ghi lại và chia sẻ trải nghiệm nấu ăn hoặc công thức gia đình của mình mãi mãi bằng cách tải lên CookWiki.",
+    "showAppreciation": "Bày tỏ sự trân trọng đến những người sáng tạo công thức đã chia sẻ món ăn của họ. Với Cooksnaps, bạn có thể cho họ biết công thức của họ có hiệu quả với bạn ra sao.",
+    "aboutCookWiki": "Về CookWiki",
+    "mission": "Sứ mệnh của CookWiki là làm cho việc nấu ăn tại nhà trở nên thú vị hơn mỗi ngày vì chúng tôi tin rằng nấu ăn là chìa khóa để có một cuộc sống hạnh phúc và lành mạnh hơn cho cá nhân, cộng đồng và cả hành tinh. Chúng tôi mong muốn hỗ trợ các đầu bếp tại gia trên toàn thế giới để họ có thể giúp đỡ nhau bằng cách chia sẻ các món ăn ngon và kinh nghiệm nấu nướng."
   }
 }
