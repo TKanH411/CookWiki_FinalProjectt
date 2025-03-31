@@ -3,6 +3,7 @@ import {Outlet, useLocation, useNavigate} from "react-router-dom";
 import {ROUTES} from "@/routes/routes";
 import {useEffect} from "react";
 
+
 const PRIVATE_ROUTES = [ROUTES.ACCOUNT_SETTING, ROUTES.SAVE_FOOD, ROUTES.CHALLENGE,ROUTES.ARTICLE_POST,ROUTES.ARTICLE_UPDATE,ROUTES.CHALLENGE_DETAIL,ROUTES.CHANGE_PASSWORD,ROUTES.CHAT,ROUTES.RECIPE]; // Các route cần login
 
 
