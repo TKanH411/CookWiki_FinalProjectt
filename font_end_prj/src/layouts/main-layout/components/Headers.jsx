@@ -10,22 +10,11 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "@/routes/routes";
 import {useTranslation} from "react-i18next";
 import {useAuth} from "@/context/hooks/useAuth";
-import vi from "@/assets/flag/vi.webp";
-import en from "@/assets/flag/en.webp";
-
-const flagLanguages = {
-    vi: vi,
-    en: en,
-}
 
 function Headers() {
     const {user} = useAuth();
 
-    const {t, i18n} = useTranslation();
-
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang).then(r => r);
-    }
+    const {t} = useTranslation();
 
     return (
         <header
@@ -50,79 +39,6 @@ function Headers() {
                         {t("header.write_article")}
                     </Link>
                 </div>
-                <div>
-                <Link
-        to={ROUTES.CHAT}
-        className={cn(
-            "flex items-center justify-center gap-2 rounded-lg px-4 py-2",
-            "font-semibold text-white shadow-md transition-all",
-            "bg-blue-500 border border-blue-600",
-            "hover:bg-blue-600 text-[16px] w-[170px] h-[40px]"
-        )}
-    >
-        <svg className="size-5 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M2 12a10 10 0 1018.39 5.56L22 22l-4.44-1.61A10 10 0 102 12zm14 0a8 8 0 11-15.83 1.67A10 10 0 0012 22a10 10 0 004.56-1.05L18 22l-1.05-4.56A10 10 0 0022 12a10 10 0 00-6-9.05A8 8 0 0116 12z"/>
-        </svg>
-        {t("header.chat")}
-    </Link>
-                </div>
-                <Menu>
-                    <MenuButton
-                        className="rounded-full hover:cursor-pointer">
-                        <img
-                            src={flagLanguages[i18n.language]}
-                            alt={`${i18n.language} logo`}
-                            className={cn("size-8")}
-                        />
-                    </MenuButton>
-
-                    <MenuItems
-                        transition
-                        anchor="bottom end"
-                        className={cn(
-                            "w-52 max-w-full bg-gray-100 rounded-xl border border-gray-200 shadow-lg z-10",
-                            "p-1 mt-1 text-sm/6 text-black transition duration-100 ease-out",
-                            "[--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
-                        )}
-                    >
-                        <MenuItem>
-                            <Button
-                                className={cn(
-                                    "group flex w-full items-center gap-2 py-1.5 px-3",
-                                    "hover:bg-gray-200 w-full rounded-lg hover:cursor-pointer"
-                                )}
-                                onClick={() => {
-                                    changeLanguage("vi")
-                                }}
-                            >
-                                <img
-                                    src={flagLanguages.vi}
-                                    alt={`${i18n.language} logo`}
-                                    className={cn("size-8")}
-                                />
-                                Vietnamese
-                            </Button>
-                        </MenuItem>
-                        <MenuItem>
-                            <Button
-                                className={cn(
-                                    "group flex w-full items-center gap-2 py-1.5 px-3",
-                                    "hover:bg-gray-200 w-full rounded-lg hover:cursor-pointer"
-                                )}
-                                onClick={() => {
-                                    changeLanguage("en")
-                                }}
-                            >
-                                <img
-                                    src={flagLanguages.en}
-                                    alt={`${i18n.language} logo`}
-                                    className={cn("size-8")}
-                                />
-                                English
-                            </Button>
-                        </MenuItem>
-                    </MenuItems>
-                </Menu>
                 <div>
                     <Menu>
                         <MenuButton
@@ -174,12 +90,6 @@ function Headers() {
                 </div>
             </div>
         </header>
-
-        /*<div className={cn("z-10 flex justify-end items-center",
-            "h-[var(--header-height)] w-[calc(100%-var(--left-toolbar-width))] fixed top-0 right-0")}>
-
-
-        </div>*/
     );
 }
 
