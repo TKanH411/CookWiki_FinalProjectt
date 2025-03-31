@@ -125,9 +125,27 @@ const useUpdateRecipe = () => {
         }
     });
 };
+const fetchMyRecipes = async (params) => {
+    const resp = await httpGet(
+        {
+            uri: queryKey + "/my-recipes",
+            options: {body: JSON.stringify(params)}
+        }
+    )
+    return await resp.json()
+}
+const useMyRecipes = (params) => {
+    return useQuery({
+        queryKey: [queryKey, "my-recipes", params],
+        queryFn: () => fetchMyRecipes(params),
+        enabled: !!params,
+    })
+}
+
 
 export {
     useRecipe,
+    useMyRecipes,
     useRecipeVerify,
     useRecipeSearch,
     useDetailRecipe,
