@@ -125,27 +125,26 @@ const useUpdateRecipe = () => {
         }
     });
 };
-const fetchMyRecipes = async (params) => {
-    const resp = await httpGet(
-        {
-            uri: queryKey + "/my-recipes",
-            options: {body: JSON.stringify(params)}
-        }
-    )
-    return await resp.json()
-}
-const useMyRecipes = (params) => {
-    return useQuery({
-        queryKey: [queryKey, "my-recipes", params],
-        queryFn: () => fetchMyRecipes(params),
-        enabled: !!params,
-    })
-}
 
+const fetchMyRecipes = async (page = 1, size = 10) => {
+    const resp = await httpGet({
+        uri: queryKey + "/my-recipes",
+        options: { params: { page, size } }
+    });
+    return await resp.json();
+};
+
+const useMyRecipes = (page = 1, size = 10) => {
+    return useQuery({
+        queryKey: [queryKey, "my-recipes", page, size],
+        queryFn: () => fetchMyRecipes(page, size),
+        keepPreviousData: true,
+    });
+};
 
 export {
     useRecipe,
-    useMyRecipes,
+   useMyRecipes,
     useRecipeVerify,
     useRecipeSearch,
     useDetailRecipe,

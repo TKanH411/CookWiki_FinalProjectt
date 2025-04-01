@@ -10,22 +10,11 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "@/routes/routes";
 import {useTranslation} from "react-i18next";
 import {useAuth} from "@/context/hooks/useAuth";
-import vi from "@/assets/flag/vi.webp";
-import en from "@/assets/flag/en.webp";
-
-const flagLanguages = {
-    vi: vi,
-    en: en,
-}
 
 function Headers() {
     const {user} = useAuth();
 
-    const {t, i18n} = useTranslation();
-
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang).then(r => r);
-    }
+    const {t} = useTranslation();
 
     return (
         <header
@@ -174,12 +163,6 @@ function Headers() {
                 </div>
             </div>
         </header>
-
-        /*<div className={cn("z-10 flex justify-end items-center",
-            "h-[var(--header-height)] w-[calc(100%-var(--left-toolbar-width))] fixed top-0 right-0")}>
-
-
-        </div>*/
     );
 }
 
