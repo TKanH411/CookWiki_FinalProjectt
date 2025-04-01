@@ -148,4 +148,23 @@ public class RecipeController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/my-recipes")
+    public ResponseEntity<?> getMyRecipes(HttpServletRequest request,
+                                          @RequestParam(defaultValue = "1") int page,
+                                          @RequestParam(defaultValue = "10") int size) throws Exception {
+        Claims claims = validateToken(request);
+        User user = userService.getUserByEmail(claims.getSubject());
+
+        Pageable pageable = PageRequest.of(page - 1, size);
+        Page<Recipe> pageRecipes = recipeService.getRecipesByUser(user.getId(), pageable);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("recipes", pageRecipes.getContent());
+        response.put("currentPage", pageRecipes.getNumber());
+        response.put("totalItems", pageRecipes.getTotalElements());
+        response.put("totalPages", pageRecipes.getTotalPages());
+
+        return ResponseEntity.ok(response);
+    }
+
 }

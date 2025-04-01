@@ -16,4 +16,8 @@ public interface RecipeRepository extends MongoRepository<Recipe, String> {
 
     @Query("{ 'title': { $regex: ?0, $options: 'i' } }")
     Page<Recipe> searchByTitle(String title, Pageable pageable);
+
+    // ⭐ Thêm query để lấy công thức theo userId (phân trang)
+    @Query("{ 'user.id': ?0 }")
+    Page<Recipe> findByUserId(String userId, Pageable pageable);
 }

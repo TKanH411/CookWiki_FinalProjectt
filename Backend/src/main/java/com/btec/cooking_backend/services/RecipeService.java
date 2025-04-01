@@ -27,6 +27,9 @@ public class RecipeService {
     public Page<Recipe> getRecipesByPagination(String title, Pageable pageable) {
         return recipeRepository.searchByTitle(title, pageable);
     }
+    public Page<Recipe> getRecipesByUser(String userId, Pageable pageable) {
+        return recipeRepository.findByUserId(userId, pageable);
+    }
 
     public List<Recipe> getAllRecipes() {
         return recipeRepository.findAll();
