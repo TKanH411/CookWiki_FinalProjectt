@@ -7,7 +7,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -18,9 +20,9 @@ public class UserService {
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    // Phương thức tạo người dùng
     public User createUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // Mã hóa mật khẩu trước khi lưu
+        // Hash the password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -62,31 +64,5 @@ public class UserService {
     // Xóa người dùng theo ID
     public void deleteUser(String id) {
         userRepository.deleteById(id);
-    }
-
-    // Lưu người dùng (hữu ích khi đổi mật khẩu)
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
-
-    // Phương thức đổi mật khẩu
-    public boolean changePassword(User user, String currentPassword, String newPassword, String confirmPassword) {
-        // Kiểm tra mật khẩu cũ có khớp không
-        if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
-            return false; // Mật khẩu cũ không chính xác
-        }
-
-        // Kiểm tra mật khẩu mới và mật khẩu xác nhận có khớp không
-        if (!newPassword.equals(confirmPassword)) {
-            return false; // Mật khẩu mới và mật khẩu xác nhận không khớp
-        }
-
-        // Mã hóa mật khẩu mới
-        user.setPassword(passwordEncoder.encode(newPassword));
-
-        // Lưu lại thông tin người dùng với mật khẩu mới
-        userRepository.save(user);
-
-        return true; // Đổi mật khẩu thành công
     }
 }

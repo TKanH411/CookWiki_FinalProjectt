@@ -89,4 +89,15 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+    private String role; // "admin" hoặc "user"
+
+    // Getter & Setter
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 }

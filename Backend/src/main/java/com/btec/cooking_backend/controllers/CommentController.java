@@ -53,11 +53,14 @@ public class CommentController {
         }
     }
 
+    // Chỉnh sửa phương thức lấy bình luận chỉ cho bài viết cụ thể
     @GetMapping("/{productId}")
     public ResponseEntity<List<CommentRes>> getCommentsByProduct(@PathVariable String productId) {
+        // Lọc bình luận theo productId
         List<CommentRes> comments = commentService.getCommentsByProduct(productId);
         return ResponseEntity.ok(comments);
     }
+
 
     @GetMapping("/replies/{parentId}")
     public ResponseEntity<List<CommentRes>> getReplies(@PathVariable String parentId) {

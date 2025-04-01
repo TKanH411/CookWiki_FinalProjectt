@@ -28,11 +28,11 @@ public class JwtUtil {
                 .compact();
     }
 
-    public static Claims verifyToken(String token) throws Exception {
+    public static Claims verifyToken(String token) throws JwtException {
         try {
             Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
 
-            // Xác minh JWT
+            // Parse and verify JWT
             Jws<Claims> claimsJws = Jwts.parserBuilder()
                     .setSigningKey(key)
                     .build()
@@ -40,19 +40,24 @@ public class JwtUtil {
 
             return claimsJws.getBody();
         } catch (JwtException e) {
-            System.err.println("Invalid JWT: " + e.getMessage());
-            return null;
+            throw new JwtException("Invalid JWT: " + e.getMessage());
         }
     }
 
     public static Claims validateToken(HttpServletRequest request) throws Exception {
         String authHeader = request.getHeader("Authorization");
+
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             throw new Exception("Missing or invalid Authorization header");
         }
-        String token = authHeader.substring(7); // Extract the token part
-        return JwtUtil.verifyToken(token); // Validate the token
-    }
 
+        String token = authHeader.substring(7); // Extract token from 'Bearer <token>'
+
+        try {
+            return JwtUtil.verifyToken(token); // Validate token
+        } catch (JwtException e) {
+            throw new Exception("Invalid or expired token", e);
+        }
+    }
     // Existing methods for validation and claims extraction
 }

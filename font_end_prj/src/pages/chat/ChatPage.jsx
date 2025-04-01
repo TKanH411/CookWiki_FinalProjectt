@@ -5,42 +5,31 @@ const ChatPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const chatContainerRef = useRef(null);
+  
+  useEffect(() => {
+    // Kiểm tra nếu Dialogflow Messenger chưa được thêm
+    if (!document.querySelector("df-messenger")) {
+      const script = document.createElement("script");
+      script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+      script.async = true;
+      document.body.appendChild(script);
+
+      const messenger = document.createElement("df-messenger");
+      messenger.setAttribute("intent", "WELCOME");
+      messenger.setAttribute("chat-title", "AI_COOKWIKI");
+      messenger.setAttribute("agent-id", "f7e6cbda-cc5b-4b18-90ed-6e3458158af4");
+      messenger.setAttribute("language-code", "en");
+      document.body.appendChild(messenger);
+    }
+  }, []);
 
   // Hàm gửi tin nhắn lên Dialogflow
   const sendMessage = async () => {
     if (!input.trim()) return;
-
+    
     const userMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
-
-    try {
-      const response = await fetch("https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer YOUR_ACCESS_TOKEN`, // Thay bằng Access Token của bạn
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          queryInput: {
-            text: {
-              text: input,
-              languageCode: "en",
-            },
-          },
-        }),
-      });
-
-      const data = await response.json();
-      const botMessage = {
-        sender: "bot",
-        text: data.queryResult.fulfillmentText || "Xin lỗi, tôi không hiểu.",
-      };
-
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
   };
 
   // Auto scroll xuống tin nhắn mới nhất

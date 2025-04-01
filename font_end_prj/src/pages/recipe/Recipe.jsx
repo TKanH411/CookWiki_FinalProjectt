@@ -198,7 +198,7 @@ function Recipe() {
                         </p>
                         <p className={cn("text-[16px] font-normal flex items-center")}>
                             <MapPinIcon className={cn("size-5 mr-2 fill-black")}/>
-                            Huế
+                            Hà Nội
                         </p>
                         <Button
                             type="submit"
@@ -263,7 +263,7 @@ function Recipe() {
                 </div>
             </div>
 
-            <p className={cn("text-[20px] font-bold")}>Về Cookpad</p>
+            <p className={cn("text-[20px] font-bold")}>Về CookWiki</p>
             <span className={cn("text-[16px] font-semibold")}>Sứ mệnh của Cookpad là làm cho việc vào bếp vui hơn mỗi ngày, 
                 vì chúng tôi tin rằng nấu nướng là chìa khoá cho một cuộc sống hạnh phúc hơn và khoẻ mạnh hơn cho con người, cộng đồng, và hành tinh này. 
                 Chúng tôi muốn hỗ trợ các đầu bếp gia đình trên toàn thế giới để họ có thể giúp đỡ nhau qua việc chia sẻ các món ngon và kinh nghiệm nấu ăn của mình.</span>
