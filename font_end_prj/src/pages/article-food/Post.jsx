@@ -1,23 +1,23 @@
-import {useCallback, useState} from "react";
-import {cn} from "@/lib/utils";
+import { useCallback, useState } from "react";
+import { cn } from "@/lib/utils";
 import bgImage6 from "@/assets/img-6.jpg";
-import {CameraIcon, MinusIcon, PencilSquareIcon, PlusIcon,} from "@heroicons/react/20/solid";
-import {Button, Input, Textarea} from "@headlessui/react";
-import {z} from "zod";
-import {Controller, useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { CameraIcon, MinusIcon, PencilSquareIcon, PlusIcon, } from "@heroicons/react/20/solid";
+import { Button, Input, Textarea } from "@headlessui/react";
+import { z } from "zod";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import ImageUpload from "@/components/commons/ImageUpload";
-import {ROUTES} from "@/routes/routes";
-import {Link, useNavigate} from "react-router-dom";
-import {DndContext, DragOverlay} from "@dnd-kit/core";
-import {arrayMove, SortableContext} from "@dnd-kit/sortable";
+import { ROUTES } from "@/routes/routes";
+import { Link, useNavigate } from "react-router-dom";
+import { DndContext, DragOverlay } from "@dnd-kit/core";
+import { arrayMove, SortableContext } from "@dnd-kit/sortable";
 import CookStep from "@/pages/article-food/components/CookStep";
-import {v4 as uuidv4} from "uuid";
-import {DevTool} from "@hookform/devtools";
-import {useAddRecipe} from "@/hooks/useRecipe";
-import {toast} from "sonner";
-import {useTranslation} from "react-i18next";
-import {useAuth} from "@/context/hooks/useAuth";
+import { v4 as uuidv4 } from "uuid";
+import { DevTool } from "@hookform/devtools";
+import { useAddRecipe } from "@/hooks/useRecipe";
+import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "@/context/hooks/useAuth";
 
 const ingredientsDefault = {
     name: "",
@@ -53,9 +53,9 @@ const FormSchema = z.object({
 });
 
 function Post() {
-    const {user} = useAuth();
+    const { user } = useAuth();
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const addRecipeMutation = useAddRecipe()
@@ -64,7 +64,7 @@ function Post() {
         handleSubmit,
         getValues,
         setValue,
-        formState: {errors},
+        formState: { errors },
     } = useForm({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -119,14 +119,14 @@ function Post() {
 
     // Xử lý sự kiện bắt đầu kéo
     const handleDragStart = useCallback((event) => {
-        const {active} = event;
+        const { active } = event;
         setActiveId(active.id);
     }, []);
 
     // Xử lý sự kiện kết thúc kéo
     const handleDragEnd = useCallback(
         (event) => {
-            const {active, over} = event;
+            const { active, over } = event;
             // Nếu không có phần tử thả hoặc phần tử không thay đổi vị trí
             if (!over || active.id === over.id) {
                 setActiveId(null);
@@ -173,9 +173,9 @@ function Post() {
                         <Controller
                             control={control}
                             name="imageThumb"
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <ImageUpload
-                                    image={{className: "w-full h-auto"}}
+                                    image={{ className: "w-full h-auto" }}
                                     onChange={(srcList) => {
                                         console.log("------> Line: 147 | Post.jsx srcList: ", srcList);
                                         field.onChange(srcList[0])
@@ -188,7 +188,7 @@ function Post() {
                                             "p-6 rounded-lg text-center bg-[#F8F6F2] flex flex-col justify-center items-center gap-4"
                                         )}
                                     >
-                                        <CameraIcon className={cn("size-10 fill-gray-400 text-gray-500")}/>
+                                        <CameraIcon className={cn("size-10 fill-gray-400 text-gray-500")} />
                                         <p className={cn("text-gray-600 font-semibold")}>
                                             {t("article_food.have_you_posted_the_picture_you_cooked_here_yet")}
                                         </p>
@@ -201,13 +201,13 @@ function Post() {
                         />
 
                         <div className={cn("flex flex-col gap-2 mt-[40px] ")}>
-                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Cooking ingredients</h2>
+                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Nguyên liệu nấu ăn</h2>
                             <div className={cn("flex gap-3 items-center")}>
-                                <p className={cn("text-semibold text-gray-500 text-[18px] text-nowrap")}> Portion:</p>
+                                <p className={cn("text-semibold text-gray-500 text-[18px] text-nowrap")}> Khẩu phần ăn:</p>
                                 <Controller
                                     control={control}
                                     name="portion"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <Input
                                             {...field}
                                             type="text"
@@ -225,7 +225,7 @@ function Post() {
                                     <Controller
                                         control={control}
                                         name="ingredients"
-                                        render={({field}) =>
+                                        render={({ field }) =>
                                             field.value?.map((item, index) => (
                                                 <div key={index} className={cn("flex items-center gap-2 w-full")}>
                                                     <Input
@@ -273,7 +273,7 @@ function Post() {
                                                         )}
                                                         onClick={() => removeIngredient(index)}
                                                     >
-                                                        <MinusIcon className={cn("size-10 fill-gray-400")}/>
+                                                        <MinusIcon className={cn("size-10 fill-gray-400")} />
                                                     </Button>
                                                 </div>
                                             ))
@@ -287,7 +287,7 @@ function Post() {
                                     )}
                                     onClick={addIngredient}
                                 >
-                                    <PlusIcon className={cn("size-7 fill-gray-400 mr-1")}/>
+                                    <PlusIcon className={cn("size-7 fill-gray-400 mr-1")} />
                                     {t("article_food.ingredient")}
                                 </Button>
                             </div>
@@ -297,7 +297,7 @@ function Post() {
                         <Controller
                             control={control}
                             name="title"
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <Input
                                     {...field}
                                     className={cn(
@@ -324,7 +324,7 @@ function Post() {
                         <Controller
                             control={control}
                             name="description"
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <Textarea
                                     {...field}
                                     className={cn(
@@ -336,15 +336,15 @@ function Post() {
                             )}
                         />
                         <div className={cn("mt-[20px]")}>
-                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Steps</h2>
+                            <h2 className={cn("text-lg font-semibold text-gray-700 text-[20px]")}>Các bước</h2>
                             <div className={cn("flex flex-wrap gap-8 items-center")}>
                                 <p className={cn("text-semibold text-gray-500 text-[18px]")}>
-                                    Cooking time
+                                    Thời gian nấu
                                 </p>
                                 <Controller
                                     control={control}
                                     name="time"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <Input
                                             {...field}
                                             type="text"
@@ -362,7 +362,7 @@ function Post() {
                                 <Controller
                                     control={control}
                                     name="cookSteps"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <DndContext
                                             onDragStart={handleDragStart}
                                             onDragEnd={handleDragEnd}
@@ -371,7 +371,7 @@ function Post() {
                                             <SortableContext items={field.value}>
                                                 {field.value.map((item, index) => (
                                                     <CookStep
-                                                        form={{getValues, control}}
+                                                        form={{ getValues, control }}
                                                         key={item.id}
                                                         item={item}
                                                         index={index}
@@ -382,12 +382,17 @@ function Post() {
                                             </SortableContext>
                                             <DragOverlay>
                                                 {activeId ? (
-                                                    // Hiển thị phần tử đang kéo (có thể tùy chỉnh giao diện)
+                                                    // Hiển thị phần tử đang kéo nếu có activeId
                                                     <div className={cn("p-4 bg-white shadow-md rounded-lg")}>
-                                                        {field.value.find((i) => i.id === activeId)?.description ||
-                                                            ""}
+                                                        {field.value.find((i) => i.id === activeId)?.description || ""}
                                                     </div>
-                                                ) : null}
+                                                ) : (
+                                                    // Nếu không có activeId, có thể hiển thị một thông báo hoặc không làm gì cả
+                                                    <div className="p-4 bg-white shadow-md rounded-lg">
+                                                        {/* Đây có thể là một thông báo hoặc để trống */}
+                                                        Đang không có phần tử nào được kéo.
+                                                    </div>
+                                                )}
                                             </DragOverlay>
                                         </DndContext>
                                     )}
@@ -398,8 +403,8 @@ function Post() {
                                     )}
                                     onClick={addCookStep}
                                 >
-                                    <PlusIcon className={cn("size-7 fill-gray-400 mr-1")}/>
-                                    Add formula
+                                    <PlusIcon className={cn("size-7 fill-gray-400 mr-1")} />
+                                    Thêm công thức
                                 </Button>
                             </div>
                         </div>
@@ -416,7 +421,7 @@ function Post() {
                             "data-[hover]:text-neutral-200 data-[open]:text-neutral-200 text-[18px] w-[200px] text-white"
                         )}
                     >
-                        Back to home
+                        Trở về trang chủ
                     </Link>
                     <Button
                         type="submit"
@@ -428,13 +433,13 @@ function Post() {
                             "data-[hover]:text-neutral-200 data-[open]:text-neutral-200 text-[18px] w-[200px] text-white"
                         )}
                     >
-                        <PencilSquareIcon className={cn("size-5 fill-white text-[rgb(255,145,0)]")}/>
-                        Post
+                        <PencilSquareIcon className={cn("size-5 fill-white text-[rgb(255,145,0)]")} />
+                        Đăng Bài
                     </Button>
                 </div>
             </form>
 
-            <DevTool control={control}/>
+            <DevTool control={control} />
         </div>
     );
 }

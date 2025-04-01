@@ -12,8 +12,8 @@ import {useAuth} from "@/context/hooks/useAuth";
 import {ROUTES} from "@/routes/routes";
 
 const FormSchema = z.object({
-    email: z.string().nonempty("Username is required"),
-    password: z.string().nonempty("Password is required"),
+    email: z.string().nonempty("Tên người dùng là bắt buộc"),
+    password: z.string().nonempty("Mật khẩu là bắt buộc"),
     isRemember: z.boolean(),
 })
 
@@ -103,12 +103,12 @@ function Login() {
                                     >
                                         <CheckIcon className="hidden size-4 fill-black group-data-[checked]:block"/>
                                     </Checkbox>
-                                    <Label className="text-sm/6 font-medium text-white">Remember me</Label>
+                                    <Label className="text-sm/6 font-medium text-white">ghi nhớ cho lần đăng nhập sau </Label>
                                 </Field>
                             )}
                         />
                         <Link to={ROUTES.FORGOT_PASSWORD} className={cn("text-sm text-white hover:underline italic")}>
-                            Forgot password?
+                            Quên mật khẩu?
                         </Link>
                     </div>
 
@@ -123,7 +123,7 @@ function Login() {
                                 "data-[hover]:text-neutral-200 data-[open]:text-neutral-200"
                             )}
                         >
-                            Login
+                          Đăng nhập 
                         </Button>
 
                         <Link
@@ -135,7 +135,7 @@ function Login() {
                                 "data-[hover]:bg-yellow-600 data-[open]:bg-yellow-600",
                                 "data-[hover]:text-neutral-200 data-[open]:text-neutral-200"
                             )}>
-                            SignUp
+                           Đăng ký 
                         </Link>
 
                     </div>
