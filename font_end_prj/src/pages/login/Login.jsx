@@ -75,7 +75,7 @@ function Login() {
                                 <div className={cn("relative")}>
                                     <Input
                                         {...field}
-                                        type="password"
+                                        type="text"
                                         className={cn(
                                             "block w-full rounded-full border-0 bg-white/5 text-white py-2 pl-4 pr-10 text-sm/6 outline-white/25",
                                             "outline-none outline-1 -outline-offset-2 outline-white/25",
