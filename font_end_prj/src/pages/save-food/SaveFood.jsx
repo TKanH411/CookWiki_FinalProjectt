@@ -160,14 +160,14 @@ function SaveFood() {
                 </div>
 
                 {/* Display status with background color and styling */}
-                <div
+                {/* <div
                   className={cn(
                     "text-[14px] font-semibold py-1 px-3 rounded-full text-white text-center",
                     getStatusColor(item?.recipe?.status)
                   )}
                 >
                   {item?.recipe?.status || "Chưa xác định"}
-                </div>
+                </div> */}
               </div>
             </Link>
           ))}
