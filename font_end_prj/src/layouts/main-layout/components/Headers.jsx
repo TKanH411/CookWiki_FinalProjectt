@@ -39,8 +39,8 @@ function Headers() {
                         {t("header.write_article")}
                     </Link>
                 </div>
-                <div>
-                {/* <Link
+                {/* <div>
+                <Link
         to={ROUTES.CHAT}
         className={cn(
             "flex items-center justify-center gap-2 rounded-lg px-4 py-2",
@@ -53,8 +53,8 @@ function Headers() {
             <path d="M2 12a10 10 0 1018.39 5.56L22 22l-4.44-1.61A10 10 0 102 12zm14 0a8 8 0 11-15.83 1.67A10 10 0 0012 22a10 10 0 004.56-1.05L18 22l-1.05-4.56A10 10 0 0022 12a10 10 0 00-6-9.05A8 8 0 0116 12z"/>
         </svg>
         {t("header.chat")}
-    </Link> */}
-                </div>
+    </Link>
+                </div> */}
                 <Menu>
                     {/* <MenuButton
                         className="rounded-full hover:cursor-pointer">
@@ -63,7 +63,7 @@ function Headers() {
                             alt={`${i18n.language} logo`}
                             className={cn("size-8")}
                         />
-                    </MenuButton> */}
+                    </MenuButton>
 
                     <MenuItems
                         transition
@@ -110,7 +110,7 @@ function Headers() {
                                 English
                             </Button>
                         </MenuItem>
-                    </MenuItems>
+                    </MenuItems> */}
                 </Menu>
                 <div>
                     <Menu>
