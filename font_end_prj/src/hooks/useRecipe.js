@@ -141,9 +141,32 @@ const useMyRecipes = (page = 1, size = 10) => {
         keepPreviousData: true,
     });
 };
+const StatusRecipe = async ({ id, params }) => {
+    const resp = await httpPatch(
+        {
+            uri: `/api/recipes/${id}/status`,
+            options: { body: JSON.stringify(params) }
+        }
+    );
+    return await resp.json();
+};
+
+const useStatusRecipe = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: StatusRecipe,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["/api/recipes"] }).then((r) => console.log("Re-fetching data: ", r));
+        },
+        onError: (error) => {
+            console.error("Error changing status", error);
+        }
+    });
+};
 
 export {
     useRecipe,
+    useStatusRecipe,
    useMyRecipes,
     useRecipeVerify,
     useRecipeSearch,
