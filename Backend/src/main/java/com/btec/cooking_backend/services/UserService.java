@@ -20,44 +20,33 @@ public class UserService {
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    private static final Map<String, String> ADMIN_ACCOUNTS = new HashMap<>();
-
-    static {
-        ADMIN_ACCOUNTS.put("duythanh999@example.com", "admin123");
-        ADMIN_ACCOUNTS.put("duyan999@example.com", "admin456");
-    }
-
-    public boolean isAdmin(String email) {
-        return ADMIN_ACCOUNTS.containsKey(email);
-    }
-
-    public boolean validateAdminCredentials(String email, String password) {
-        return ADMIN_ACCOUNTS.containsKey(email) && ADMIN_ACCOUNTS.get(email).equals(password);
-    }
     public User createUser(User user) {
         // Hash the password before saving
-        // Kiểm tra nếu email thuộc danh sách admin thì không cho phép tạo
-        if (ADMIN_ACCOUNTS.containsKey(user.getEmail())) {
-            throw new RuntimeException("Admin accounts cannot be created.");
-        }
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("user"); // Tất cả user mới chỉ có role "user"
-
         return userRepository.save(user);
     }
+
+    // Lấy thông tin người dùng theo email
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email).orElse(null);
     }
 
+    // Kiểm tra mật khẩu (dùng trong sign-in)
+    public boolean checkPassword(String inputPassword, String storedPassword) {
+        return passwordEncoder.matches(inputPassword, storedPassword);
+    }
+
+    // Lấy tất cả người dùng
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    // Lấy người dùng theo ID
     public Optional<User> getUserById(String id) {
         return userRepository.findById(id);
     }
 
+    // Cập nhật thông tin người dùng
     public User updateUser(String id, User updatedUser) {
         Optional<User> userOptional = userRepository.findById(id);
         if (userOptional.isPresent()) {
@@ -72,8 +61,8 @@ public class UserService {
         return null;
     }
 
+    // Xóa người dùng theo ID
     public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
-
 }
