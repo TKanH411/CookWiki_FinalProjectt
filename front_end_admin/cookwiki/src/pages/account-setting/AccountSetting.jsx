@@ -21,7 +21,7 @@ function AccountSetting() {
                         className={cn(styles.settingItem)}
                         onClick={openChangePasswordDialog}
                     >
-                        Change password
+                        Đổi mật khẩu
                         <ChevronRightIcon className={cn("size-6")}/>
                     </Button>
                     <Button

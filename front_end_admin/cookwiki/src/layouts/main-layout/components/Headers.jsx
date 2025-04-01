@@ -108,7 +108,7 @@ function Headers() {
                             )}
                         >
                             <Cog6ToothIcon className="size-4 fill-black"/>
-                            Account Setting
+                            Quản Trị Tài KhoảnKhoản
                         </Link>
                     </MenuItem>
                     <MenuItem>
@@ -120,7 +120,7 @@ function Headers() {
                             )}
                         >
                             <ArrowLeftStartOnRectangleIcon className="size-4 fill-black"/>
-                            Logout
+                           Đăng Xuất
                         </Link>
                     </MenuItem>
                 </MenuItems>

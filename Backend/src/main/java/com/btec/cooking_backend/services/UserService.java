@@ -65,4 +65,24 @@ public class UserService {
     public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
+
+    public boolean changePassword(User user, String currentPassword, String newPassword, String confirmPassword) {
+        // Kiểm tra mật khẩu cũ có khớp không
+        if (!passwordEncoder.matches(currentPassword, user.getPassword())) {
+            return false; // Mật khẩu cũ không chính xác
+        }
+
+        // Kiểm tra mật khẩu mới và mật khẩu xác nhận có khớp không
+        if (!newPassword.equals(confirmPassword)) {
+            return false; // Mật khẩu mới và mật khẩu xác nhận không khớp
+        }
+
+        // Mã hóa mật khẩu mới
+        user.setPassword(passwordEncoder.encode(newPassword));
+
+        // Lưu lại thông tin người dùng với mật khẩu mới
+        userRepository.save(user);
+
+        return true; // Đổi mật khẩu thành công
+    }
 }
