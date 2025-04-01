@@ -1,3 +1,3 @@
 export const ENV = {
-    API_URL: "http://150.95.113.176:8080"
+    API_URL: "http://localhost:8080"
 }
