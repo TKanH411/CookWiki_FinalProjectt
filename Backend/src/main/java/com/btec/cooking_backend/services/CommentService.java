@@ -26,15 +26,20 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
+    // Cập nhật phương thức lấy bình luận cho bài viết cụ thể
     public List<CommentRes> getCommentsByProduct(String productId) {
+        // Lấy danh sách bình luận của sản phẩm này
         List<Comment> comments = commentRepository.findByProductIdAndParentIdIsNull(productId);
         return comments.stream().map(this::mapToCommentResponse).collect(Collectors.toList());
     }
 
+
     public List<CommentRes> getReplies(String parentId) {
+        // Lấy các bình luận trả lời cho bình luận cha có parentId
         List<Comment> replies = commentRepository.findByParentId(parentId);
         return replies.stream().map(this::mapToCommentResponse).collect(Collectors.toList());
     }
+
 
     private CommentRes mapToCommentResponse(Comment comment) {
         Optional<User> sender = userService.getUserById(comment.getSenderId()); // Lấy thông tin User từ UserService
