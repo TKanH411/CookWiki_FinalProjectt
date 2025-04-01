@@ -65,9 +65,12 @@ function App() {
                    
                     
                     </Route>
+                    
 
-                    {/* Catch-all route for 404 */}
+                    <Route element={<MainLayout />}> 
                     <Route path="*" element={<NotFound />} />
+                    </Route>
+                    
                 </Routes>
             </AuthProvider>
 
