@@ -28,3 +28,13 @@ html {
     :root {
     }
 }
+/* df-messenger {
+    --df-messenger-bot-message: #f4f4f4;
+    --df-messenger-button-titlebar-color: #4a90e2;
+    --df-messenger-chat-background-color: #ffffff;
+    --df-messenger-font-color: #000000;
+    --df-messenger-send-icon: #4a90e2;
+    --df-messenger-user-message: #4a90e2;
+}
+
+

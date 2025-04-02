@@ -108,7 +108,7 @@ function Headers() {
                             )}
                         >
                             <Cog6ToothIcon className="size-4 fill-black"/>
-                            Quản Trị Tài KhoảnKhoản
+                            Quản Trị Tài Khoản
                         </Link>
                     </MenuItem>
                     <MenuItem>

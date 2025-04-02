@@ -175,7 +175,7 @@ function SaveFood() {
       </div>
 
       {/* Introduction */}
-      <p className={cn("text-[20px] font-bold")}>About Cookpad</p>
+      <p className={cn("text-[20px] font-bold")}>About CookWiki</p>
       <span className={cn("text-[16px] font-semibold")}>
         Cookwiki's mission is to make cooking more enjoyable every day because we
         believe that cooking is the key to a happier and healthier life for people,
