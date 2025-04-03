@@ -57,8 +57,11 @@ const AuthProvider = ({children}) => {
 
     const logout = useCallback(() => {
         clearToken();
+        setUser(null);
         navigate(ROUTES.LOGIN);
     }, [clearToken, navigate]);
+  
+    
 
     useEffect(() => {
         if (!configMutation.isPending && !user) {
